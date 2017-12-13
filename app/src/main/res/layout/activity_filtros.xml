@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hector.sqlactividad.Filtros">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filtrar por:"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxEst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estudiantes"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profesores"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/filtroCurso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Curso:"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/filtroCiclo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ciclo:"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttonFiltrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filtrar" />
+
+        <ListView
+            android:id="@+id/listEstudiantes"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:padding="5dp"
+            android:visibility="visible"
+            android:layout_weight="0.73" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <ListView
+            android:id="@+id/listProfesores"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:padding="5dp"
+            android:layout_weight="0.66" />
+    </LinearLayout>
+
+</LinearLayout>
