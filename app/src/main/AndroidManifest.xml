@@ -31,7 +31,9 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".ListarEstudiantes" />
         <activity android:name=".ListarProfesores" />
-        <activity android:name=".Filtros"></activity>
+        <activity android:name=".Filtros" />
+        <activity android:name=".Anyadirasignatura" />
+        <activity android:name=".ListarAsignaturas"></activity>
     </application>
 
 </manifest>

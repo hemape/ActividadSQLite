@@ -21,7 +21,7 @@ public class MyDBAdapter extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table estudiantes(id integer primary key autoincrement, nombre_e text, edad_e text, curso_e text, ciclo_e text, nota_media_e text)");
         db.execSQL("create table profesores(id integer primary key autoincrement, nombre_p text, edad_p text, curso_p text, ciclo_p text, despacho_p text)");
-
+        db.execSQL("create table asignaturas(id integer primary key autoincrement, nombre_a text, horas_a text)");
     }
 
     @Override
@@ -62,6 +62,23 @@ public class MyDBAdapter extends SQLiteOpenHelper {
             mensaje = "Profesor ingresado correctamente";
         } catch (SQLException e) {
             mensaje = "No se ha podido ingresar el profesor";
+        }
+        database.close();
+        return mensaje;
+    }
+
+    public String guardarAsignaturas(String nombre, String horas) {
+        String mensaje = "";
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues newValues = new ContentValues();
+        newValues.put("nombre_a", nombre);
+        newValues.put("horas_a", horas);
+
+        try {
+            database.insertOrThrow("asignaturas", null, newValues);
+            mensaje = "Asignatura ingresada correctamente";
+        } catch (SQLException e) {
+            mensaje = "No se ha podido ingresar la asignatura";
         }
         database.close();
         return mensaje;
@@ -114,6 +131,20 @@ public class MyDBAdapter extends SQLiteOpenHelper {
         ArrayList<String> lista = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
         String q = "SELECT * FROM profesores";
+        Cursor registros = database.rawQuery(q, null);
+        if (registros.moveToFirst()) {
+            do {
+                lista.add(registros.getString(1));
+            } while (registros.moveToNext());
+        }
+        return lista;
+
+    }
+
+    public ArrayList llenar_lvAsignaturas() {
+        ArrayList<String> lista = new ArrayList<>();
+        SQLiteDatabase database = this.getWritableDatabase();
+        String q = "SELECT * FROM asignaturas";
         Cursor registros = database.rawQuery(q, null);
         if (registros.moveToFirst()) {
             do {

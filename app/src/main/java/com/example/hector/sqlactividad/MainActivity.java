@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private Button botonListarAlumno;
     private Button botonListarProfesor;
     private Button botonFiltrar;
+
+    private Button botonAnyadirAsignatura;
+    private Button botonBuscarAsignatura;
     private final int SUBACT_1 = 345;
 
 
@@ -36,9 +39,24 @@ public class MainActivity extends AppCompatActivity {
         botonListarAlumno = (Button) findViewById(R.id.listaest);
         botonListarProfesor = (Button) findViewById(R.id.listaprofe);
         botonFiltrar = (Button) findViewById(R.id.filtrarambos);
+        botonAnyadirAsignatura = (Button) findViewById(R.id.btnAnyadirAsignatura);
+        botonBuscarAsignatura= (Button) findViewById(R.id.btnBuscarAsignatura);
 
+        botonBuscarAsignatura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ListarAsignaturas.class);
+                startActivityForResult(i, SUBACT_1);
+            }
+        });
 
-
+        botonAnyadirAsignatura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Anyadirasignatura.class);
+                startActivityForResult(i, SUBACT_1);
+            }
+        });
         botonAnyadirAlumno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
